@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import MenuConnect from "./MenuConnect";
 
 function Navbar() {
   return (
@@ -25,6 +26,7 @@ function Navbar() {
             Contact
           </Link>
         </li>
+        <MenuConnect />
       </ul>
     </nav>
   );
