@@ -1,4 +1,4 @@
-function Projects() {
+export default function Projects() {
   return (
     <div>
       <h2>Voila tout ce que j'ai fait</h2>
@@ -6,5 +6,3 @@ function Projects() {
     </div>
   );
 }
-
-export default Projects;
