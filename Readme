@@ -1,0 +1,12 @@
+mon-portfolio/
+│── node_modules/       # Dépendances installées (ne pas modifier)
+│── public/             # Fichiers statiques (ex: favicon, images)
+│── src/                # Code source de ton projet
+│   │── assets/         # (Optionnel) Images, logos, styles
+│   │── components/     # Composants réutilisables
+│   │── pages/          # Pages principales du portfolio
+│   │── App.jsx         # Composant principal
+│   │── main.jsx        # Point d’entrée de l’application
+│── index.html          # Fichier HTML principal
+│── package.json        # Fichier de configuration des dépendances
+│── vite.config.js      # Configuration de Vite
