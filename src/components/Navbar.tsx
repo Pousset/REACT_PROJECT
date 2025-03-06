@@ -1,18 +1,22 @@
 import { Link, useLocation } from "react-router-dom";
 import React from "react";
 
+// Définition du composant Navbar
 function Navbar() {
+  // Utilisation du hook useLocation pour obtenir l'objet location
   const location = useLocation();
 
-  // Function to check if the route is active
+  // Fonction pour vérifier si la route est active
   const isActive = (path: string): boolean => {
     return location.pathname === path;
   };
 
   return (
+    // Style pour le conteneur de la barre de navigation
     <div style={styles.navbarWrapper as React.CSSProperties}>
       <nav style={styles.navbar as React.CSSProperties}>
         <div style={styles.navLinks as React.CSSProperties}>
+          {/* Lien vers la page d'accueil */}
           <Link
             className={`nav-link ${isActive("/") ? "active" : ""}`}
             to="/"
@@ -25,6 +29,7 @@ function Navbar() {
           >
             Home
           </Link>
+          {/* Lien vers la page "About" */}
           <Link
             className={`nav-link ${isActive("/about") ? "active" : ""}`}
             to="/about"
@@ -37,7 +42,7 @@ function Navbar() {
           >
             About
           </Link>
-
+          {/* Lien vers la page "Projects" */}
           <Link
             className={`nav-link ${isActive("/projects") ? "active" : ""}`}
             to="/projects"
@@ -50,9 +55,10 @@ function Navbar() {
           >
             Projects
           </Link>
+          {/* Lien vers la page "Contact" */}
           <Link
-            className={`nav-link ${isActive("/resume") ? "active" : ""}`}
-            to="/resume"
+            className={`nav-link ${isActive("/contact") ? "active" : ""}`}
+            to="/contact"
             style={
               {
                 ...styles.navLink,
@@ -68,6 +74,7 @@ function Navbar() {
   );
 }
 
+// Définition des styles pour les différents éléments de la barre de navigation
 const styles = {
   navbarWrapper: {
     display: "flex",
