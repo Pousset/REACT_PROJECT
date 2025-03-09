@@ -16,7 +16,7 @@ export default function Home() {
         ;<h1>Bienvenue sur mon porfolio</h1>
         <div style={styles.imagesContainer}>
           <a
-            href="https://reactjs.org/"
+            href="https://github.com/Pousset/REACT_PROJECT"
             target="_blank"
             rel="noopener noreferrer"
             style={styles.imageWrapper}
