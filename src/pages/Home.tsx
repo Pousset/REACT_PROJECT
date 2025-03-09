@@ -1,12 +1,12 @@
 import reactLogo from "../assets/react.svg";
 import githubLogo from "../assets/github.svg";
-
+import vueLogo from "../assets/vue.svg";
 export default function Home() {
   return (
     <div>
       <div style={styles.content}>
         <a
-          href="https://github.com/Pousset/REACT_PROJECT"
+          href="https://github.com/Pousset"
           target="_blank"
           rel="noopener noreferrer"
           style={styles.imageWrapper}
@@ -22,6 +22,16 @@ export default function Home() {
             style={styles.imageWrapper}
           >
             <img src={reactLogo} alt="React Logo" style={styles.image} />
+          </a>
+        </div>
+        <div style={styles.imagesContainer}>
+          <a
+            href="https://github.com/Pousset/REACT_PROJECT"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={styles.imageWrapper}
+          >
+            <img src={vueLogo} alt="React Logo" style={styles.image} />
           </a>
         </div>
       </div>
