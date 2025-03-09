@@ -39,7 +39,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     height: "100%",
     background: "black",
     overflow: "hidden",
-    zIndex: -1, // Assurez-vous que le fond étoilé est derrière le contenu principal
+    zIndex: -1, 
   },
   star: {
     position: "absolute",

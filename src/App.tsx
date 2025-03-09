@@ -5,10 +5,13 @@ import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import Navbar from "./components/Navbar";
+import "./components/StarryBackground.tsx"; // Importez le fichier CSS
+import StarryBackground from "./components/StarryBackground.tsx";
 
 function App() {
   return (
     <Router>
+      <StarryBackground />;
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

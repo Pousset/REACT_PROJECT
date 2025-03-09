@@ -1,7 +1,5 @@
 import reactLogo from "../assets/react.svg";
 import githubLogo from "../assets/github.svg";
-import StarryBackground from "../components/StarryBackground";
-import "../components/StarryBackground.tsx"; // Importez le fichier CSS
 
 export default function Home() {
   return (
@@ -15,7 +13,7 @@ export default function Home() {
         >
           <img src={githubLogo} alt="GitHub Logo" style={styles.image} />
         </a>
-        <StarryBackground />;<h1>Bienvenue sur mon porfolio</h1>
+        ;<h1>Bienvenue sur mon porfolio</h1>
         <div style={styles.imagesContainer}>
           <a
             href="https://reactjs.org/"
