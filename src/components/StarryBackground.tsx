@@ -1,5 +1,4 @@
 import React from "react";
-import "./StarryBackground.css";
 
 const StarryBackground: React.FC = () => {
   const stars = Array.from({ length: 100 }, (_, i) => ({
@@ -12,12 +11,12 @@ const StarryBackground: React.FC = () => {
   }));
 
   return (
-    <div className="starry-background">
+    <div style={styles.starryBackground}>
       {stars.map((star) => (
         <div
           key={star.id}
-          className="star"
           style={{
+            ...styles.star,
             width: star.size,
             height: star.size,
             top: star.top,
@@ -30,5 +29,45 @@ const StarryBackground: React.FC = () => {
     </div>
   );
 };
+
+const styles: { [key: string]: React.CSSProperties } = {
+  starryBackground: {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    background: "black",
+    overflow: "hidden",
+    zIndex: -1, // Assurez-vous que le fond étoilé est derrière le contenu principal
+  },
+  star: {
+    position: "absolute",
+    background: "white",
+    borderRadius: "50%",
+    boxShadow: "0 0 5px white",
+    animation: "twinkle infinite alternate ease-in-out",
+  },
+};
+
+// Ajoutez les animations globales dans index.css ou dans un style global
+const globalStyles = `
+@keyframes twinkle {
+  0% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+`;
+
+// Injectez les styles globaux dans le document
+const styleSheet = document.createElement("style");
+styleSheet.type = "text/css";
+styleSheet.innerText = globalStyles;
+document.head.appendChild(styleSheet);
 
 export default StarryBackground;

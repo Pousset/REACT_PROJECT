@@ -1,14 +1,21 @@
 import reactLogo from "../assets/react.svg";
 import githubLogo from "../assets/github.svg";
 import StarryBackground from "../components/StarryBackground";
-import "../components/StarryBackground.css"; // Importez le fichier CSS
+import "../components/StarryBackground.tsx"; // Importez le fichier CSS
 
 export default function Home() {
   return (
     <div>
-      <StarryBackground />;
       <div style={styles.content}>
-        <h1>Bienvenue sur mon porfolio</h1>
+        <a
+          href="https://github.com/Pousset/REACT_PROJECT"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={styles.imageWrapper}
+        >
+          <img src={githubLogo} alt="GitHub Logo" style={styles.image} />
+        </a>
+        <StarryBackground />;<h1>Bienvenue sur mon porfolio</h1>
         <div style={styles.imagesContainer}>
           <a
             href="https://reactjs.org/"
@@ -17,14 +24,6 @@ export default function Home() {
             style={styles.imageWrapper}
           >
             <img src={reactLogo} alt="React Logo" style={styles.image} />
-          </a>
-          <a
-            href="https://github.com/Pousset/REACT_PROJECT"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={styles.imageWrapper}
-          >
-            <img src={githubLogo} alt="GitHub Logo" style={styles.image} />
           </a>
         </div>
       </div>
