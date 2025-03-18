@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import React from "react";
+import UserMenu from "./UserMenu";
 
 // Définition du composant Navbar
 function Navbar() {
@@ -68,6 +69,8 @@ function Navbar() {
           >
             Contact
           </Link>
+          {/* Menu utilisateur */}
+          <UserMenu />
         </div>
       </nav>
     </div>

@@ -7,11 +7,12 @@ export default function Signup() {
 
   const handleSignup = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/api/users/signup", { email, password });
+      const response = await axios.post(
+        "http://localhost:5000/api/users/signup",
+        { email, password }
+      );
       alert(response.data.message);
-    } catch (error) {
-      alert(error.response.data.error);
-    }
+    } catch (error) {}
   };
 
   return (
