@@ -1,35 +1,71 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const StarryBackground: React.FC = () => {
-  const stars = Array.from({ length: 100 }, (_, i) => ({
-    id: i,
-    size: Math.random() * 3 + 1 + "px",
-    top: Math.random() * 100 + "vh",
-    left: Math.random() * 100 + "vw",
-    animationDuration: Math.random() * 5 + 2 + "s",
-    animationDelay: Math.random() * 5 + "s",
-  }));
+// Définition des couleurs et des formes des étoiles
+const starColors = [
+  "text-yellow-300",
+  "text-orange-300",
+  "text-pink-300",
+  "text-purple-300",
+];
+const starShapes = ["•", "✦", "✧", "+", "×", "★", "✸"];
+
+// Définition du composant StarryBackground
+const StarryBackground: React.FC<{ starCount?: number }> = ({
+  starCount = 100, // Valeur par défaut du nombre d'étoiles
+}) => {
+  // État pour stocker les étoiles générées
+  const [stars, setStars] = useState<
+    {
+      id: number;
+      color: string;
+      shape: string;
+      left: string;
+      top: string;
+      duration: number;
+    }[]
+  >([]);
+
+  // Fonction pour générer les étoiles
+  const generateStars = () => {
+    const newStars = Array.from({ length: starCount }, (_, index) => ({
+      id: index,
+      color: starColors[Math.floor(Math.random() * starColors.length)],
+      shape: starShapes[Math.floor(Math.random() * starShapes.length)],
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      duration: 1 + Math.random() * 3,
+    }));
+    setStars(newStars);
+  };
+
+  // Utilisation de useEffect pour générer les étoiles lors du montage du composant
+  useEffect(() => {
+    generateStars();
+  }, [starCount]);
 
   return (
+    // Conteneur pour le fond étoilé
     <div style={styles.starryBackground}>
       {stars.map((star) => (
+        // Chaque étoile est rendue avec des styles et des classes appliqués pour la couleur et l'animation
         <div
           key={star.id}
           style={{
             ...styles.star,
-            width: star.size,
-            height: star.size,
-            top: star.top,
             left: star.left,
-            animationDuration: star.animationDuration,
-            animationDelay: star.animationDelay,
+            top: star.top,
+            animation: `twinkle ${star.duration}s infinite`,
           }}
-        />
+          className={star.color}
+        >
+          {star.shape}
+        </div>
       ))}
     </div>
   );
 };
 
+// Définition des styles pour les différents éléments
 const styles: { [key: string]: React.CSSProperties } = {
   starryBackground: {
     position: "fixed",
@@ -37,34 +73,29 @@ const styles: { [key: string]: React.CSSProperties } = {
     left: 0,
     width: "100%",
     height: "100%",
-    background: "black",
     overflow: "hidden",
-    zIndex: -1, 
+    opacity: 0.5,
+    pointerEvents: "none",
+    zIndex: -1, // fond étoilé doit etre derrière le contenu principal
   },
   star: {
     position: "absolute",
-    background: "white",
-    borderRadius: "50%",
-    boxShadow: "0 0 5px white",
-    animation: "twinkle infinite alternate ease-in-out",
+    fontSize: "12px",
   },
 };
 
-// Ajoutez les animations globales dans index.css ou dans un style global
+// Ajout des animations globales dans le document
 const globalStyles = `
 @keyframes twinkle {
-  0% {
-    opacity: 0.3;
-    transform: scale(1);
+  0%, 100% {
+    opacity: 0;
   }
-  100% {
+  50% {
     opacity: 1;
-    transform: scale(1.2);
   }
-}
-`;
+}`;
 
-// Injectez les styles globaux dans le document
+// Injection des styles globaux dans le document
 const styleSheet = document.createElement("style");
 styleSheet.type = "text/css";
 styleSheet.innerText = globalStyles;
